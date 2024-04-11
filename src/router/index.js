@@ -1,23 +1,31 @@
 import { createRouter, createWebHistory } from 'vue-router'
-import HomeView from '../views/HomeView.vue'
+import DashboardView from '@/views/DashboardView.vue'
+import EmptyComponent from '@/components/EmptyComponent.vue'
+import InventoryView from '@/views/InventoryView.vue'
+
+const future_routes = ['profile', 'sales', 'users'].map((route) => ({
+  path: `/${route}`,
+  name: route,
+  component: EmptyComponent
+}))
+
+const routes = [
+  {
+    path: '/',
+    name: 'dashboard',
+    component: DashboardView
+  },
+  {
+    path: '/inventory',
+    name: 'inventory',
+    component: InventoryView
+  },
+  ...future_routes
+]
 
 const router = createRouter({
   history: createWebHistory(import.meta.env.BASE_URL),
-  routes: [
-    {
-      path: '/',
-      name: 'home',
-      component: HomeView
-    },
-    {
-      path: '/about',
-      name: 'about',
-      // route level code-splitting
-      // this generates a separate chunk (About.[hash].js) for this route
-      // which is lazy-loaded when the route is visited.
-      component: () => import('../views/AboutView.vue')
-    }
-  ]
+  routes
 })
 
 export default router
