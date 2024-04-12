@@ -1,33 +1,46 @@
 <script setup>
-import { ref, computed } from 'vue'
-
+import { computed } from 'vue'
+import IconComponent from '@/components/ui/IconComponent.vue'
 import ItemPage from '@/components/SideBar/ItemPage.vue'
 
-const hover = ref(false)
+const props = defineProps({
+  hover: {
+    type: Boolean,
+    default: false
+  }
+})
+
+const emit = defineEmits(['close'])
 
 // Computed
 const getImage = computed(() => {
-  if (hover.value) return 'https://i.ibb.co/dbC2HFM/Logo.png'
+  if (props.hover) return 'https://i.ibb.co/dbC2HFM/Logo.png'
   return 'https://i.ibb.co/wQ6h7fy/Isotipo.png'
 })
 </script>
 
 <template>
   <div
-    class="bg-white h-full w-16 hover:w-44 py-4 shadow-md flex flex-col justify-between items-center px-2"
-    @mouseover="hover = true"
-    @mouseleave="hover = false"
+    class="bg-white h-full w-full sm:w-auto py-4 px-2 shadow-md flex flex-col justify-between items-center"
   >
-    <div class="space-y-14">
-      <a href="/">
-        <img
-          :src="getImage"
-          alt="Isotipo OrganiClub"
-          lazy="load"
-          class="mx-auto"
-          :class="{ 'max-w-10': !hover, 'w-full': hover }"
-        />
-      </a>
+    <div class="space-y-14 w-full">
+      <div class="flex justify-between sm:justify-center">
+        <a href="/">
+          <img
+            :src="getImage"
+            alt="Isotipo OrganiClub"
+            lazy="load"
+            class="mx-auto"
+            :class="{ 'max-w-10': !hover, 'max-w-40	sm:max-w-none	 sm:w-full': hover }"
+          />
+        </a>
+        <button
+          class="flex sm:hidden hover:bg-[#6B99C3] hover:bg-opacity-20 text-[#16354D] p-2 rounded"
+          @click="emit('close')"
+        >
+          <IconComponent name="ic:round-close" />
+        </button>
+      </div>
       <div class="space-y-2">
         <ItemPage
           name="material-symbols:dashboard-rounded"
