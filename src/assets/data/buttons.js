@@ -5,9 +5,9 @@ export const COLORS_HOVER = {
 }
 
 export const COLORS = {
-  primary: `bg-[#dc8a00] text-white ${COLORS_HOVER.primary}`,
-  'primary-outline': `bg-white text-[#dc8a00] border border-[#dc8a00] ${COLORS_HOVER['primary-outline']}`,
-  'secondary-outline': `text-[#16354D] ${COLORS_HOVER['secondary-outline']}`
+  primary: `bg-[#dc8a00] border-[#dc8a00] text-white ${COLORS_HOVER.primary}`,
+  'primary-outline': `bg-white text-[#dc8a00] border-[#dc8a00] ${COLORS_HOVER['primary-outline']}`,
+  'secondary-outline': `text-[#16354D] ${COLORS_HOVER['secondary-outline']} border-none`
 }
 
 export const SIZES = {
