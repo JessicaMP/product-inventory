@@ -2,6 +2,7 @@
 import { computed } from 'vue'
 import IconComponent from '@/components/ui/IconComponent.vue'
 import ItemPage from '@/components/SideBar/ItemPage.vue'
+import Button from '@/components/ui/Button.vue'
 
 const props = defineProps({
   hover: {
@@ -34,19 +35,21 @@ const getImage = computed(() => {
             :class="{ 'max-w-10': !hover, 'max-w-40	sm:max-w-none	 sm:w-full': hover }"
           />
         </a>
-        <button
-          class="flex sm:hidden hover:bg-[#6B99C3] hover:bg-opacity-20 text-[#16354D] p-2 rounded"
+        <Button
+          color="secondary-outline"
+          size="small"
+          class="flex items-center sm:hidden"
           @click="emit('close')"
         >
           <IconComponent name="ic:round-close" />
-        </button>
+        </Button>
       </div>
       <div class="space-y-2">
         <ItemPage
           name="material-symbols:dashboard-rounded"
           label="Dashboard"
           :showLabel="hover"
-          routePath="/dashboard"
+          routePath="/"
         />
         <ItemPage name="ph:users-three-fill" label="Users" :showLabel="hover" routePath="users" />
         <ItemPage

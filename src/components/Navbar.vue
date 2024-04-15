@@ -2,6 +2,7 @@
 import { ref } from 'vue'
 import IconComponent from '@/components/ui/IconComponent.vue'
 import SideBar from '@/components/SideBar/SideBar.vue'
+import Button from '@/components/ui/Button.vue'
 
 const isOpenMenu = ref(false)
 
@@ -23,17 +24,14 @@ defineOptions({
         class="w-40"
       />
 
-      <button
-        class="hover:bg-[#6B99C3] hover:bg-opacity-20 text-[#16354D] p-2 rounded"
-        @click="isOpenMenu = !isOpenMenu"
-      >
+      <Button color="secondary-outline" size="small" @click="isOpenMenu = !isOpenMenu">
         <IconComponent name="uil:bars" />
-      </button>
+      </Button>
     </div>
     <SideBar
       v-if="isOpenMenu"
       class="mt-2"
-      :class="{ 'absolute top-0': isOpenMenu }"
+      :class="{ 'absolute top-0 h-screen': isOpenMenu }"
       :hover="true"
       @close="isOpenMenu = false"
     />

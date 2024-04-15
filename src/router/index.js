@@ -1,5 +1,5 @@
 import { createRouter, createWebHistory } from 'vue-router'
-import DashboardView from '@/views/DashboardView.vue'
+// import DashboardView from '@/views/DashboardView.vue'
 import EmptyComponent from '@/components/EmptyComponent.vue'
 import InventoryView from '@/views/InventoryView.vue'
 
@@ -13,7 +13,7 @@ const routes = [
   {
     path: '/',
     name: 'dashboard',
-    component: DashboardView
+    component: EmptyComponent
   },
   {
     path: '/inventory',

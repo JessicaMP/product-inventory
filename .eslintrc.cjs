@@ -10,14 +10,6 @@ module.exports = {
   ],
   parserOptions: {
     ecmaVersion: 'latest'
-  }
-  // rules: {
-  //   'vue/no-undef-components': [
-  //     'error',
-  //     {
-  //       ignorePatterns: ['custom(\\-\\w+)+']
-  //     }
-  //   ]
-  // }
-  // types: ['vue/ref-macros']
+  },
+  rules: { 'vue/multi-word-component-names': 'off' }
 }
