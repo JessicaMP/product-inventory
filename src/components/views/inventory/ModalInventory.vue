@@ -13,7 +13,7 @@ defineOptions({
 const props = defineProps({
   formValue: {
     type: Object,
-    default: {}
+    default: () => {}
   },
   type: {
     type: String,

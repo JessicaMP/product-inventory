@@ -15,7 +15,7 @@ defineProps({
   }
 })
 
-const emit = defineEmits(['remove', 'update'])
+const emit = defineEmits(['remove', 'update', 'sell'])
 
 const getColor = computed(() => {
   return (colorId) => {
@@ -96,11 +96,29 @@ const findById = (id, list) => {
             <td class="px-6 py-4">{{ getPrice(item.price) }}</td>
             <td class="px-6 py-4">
               <div class="flex justify-end gap-4">
-                <Button color="secondary-outline" size="small" @click="emit('remove', index)">
+                <Button
+                  color="secondary-outline"
+                  size="small"
+                  border="border-none"
+                  @click="emit('remove', index)"
+                >
                   <IconComponent name="tabler:trash" />
                 </Button>
-                <Button color="secondary-outline" size="small" @click="emit('update', index)">
+                <Button
+                  color="secondary-outline"
+                  size="small"
+                  border="border-none"
+                  @click="emit('update', index)"
+                >
                   <IconComponent name="fluent-mdl2:edit" />
+                </Button>
+                <Button
+                  color="primary-outline"
+                  size="small"
+                  border="border-none"
+                  @click="emit('sell', index)"
+                >
+                  <IconComponent name="ep:sell" />
                 </Button>
               </div>
             </td>

@@ -18,12 +18,16 @@ const props = defineProps({
   rounded: {
     type: String,
     default: 'rounded'
+  },
+  border: {
+    type: String,
+    default: 'border'
   }
 })
 
 // Computed
 const classButton = computed(() => {
-  return `${COLORS[props.color]} ${SIZES[props.size]} ${props.rounded}`
+  return `${COLORS[props.color]} ${SIZES[props.size]} ${props.rounded} ${props.border}`
 })
 </script>
 

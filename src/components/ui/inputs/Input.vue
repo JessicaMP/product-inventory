@@ -27,13 +27,19 @@ defineProps({
     default: null
   }
 })
-const emit = defineEmits(['update:modelValue'])
+const emit = defineEmits(['update:modelValue', 'blur', 'input'])
 
 const inputForm = ref(null)
 
 const input = (e) => {
   const { value = null } = e?.target || {}
   emit('update:modelValue', value)
+  emit('input', value)
+}
+
+const blur = (e) => {
+  const { value = null } = e?.target || {}
+  emit('blur', value)
 }
 </script>
 
@@ -51,7 +57,6 @@ const input = (e) => {
       :required="required"
       class="border border-gray-400 text-gray-700 focus-within:border-primary-500 rounded w-full px-3 py-1.5"
       @input="input"
-      @keyup="keyup"
       @blur="blur"
     />
   </div>
