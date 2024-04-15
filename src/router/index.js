@@ -1,5 +1,4 @@
 import { createRouter, createWebHistory } from 'vue-router'
-// import DashboardView from '@/views/DashboardView.vue'
 import EmptyComponent from '@/components/EmptyComponent.vue'
 import InventoryView from '@/views/InventoryView.vue'
 
